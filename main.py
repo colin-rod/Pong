@@ -7,12 +7,23 @@ screen.bgcolor("black")
 screen.title("Pong")
 screen.tracer(0)
 
-paddle = Paddle()
-screen.update()
+l_paddle = Paddle((-350,0))
+r_paddle = Paddle((350,0))
+
+
+screen.listen()
+screen.onkey(l_paddle.go_up,"w")
+screen.onkey(l_paddle.go_down,"s")
+screen.onkey(r_paddle.go_up,"Up")
+screen.onkey(r_paddle.go_down,"Down")
+
+
+game_is_on = True
+while game_is_on:
+    screen.update()
 
 
 
-START_POSITION = {'paddle_left':[(-380,0),(-380,20),(-380,-20)],'paddle_right':[(380,0),(380,20),(380,-20)]}
-print(START_POSITION.items())
+
 
 screen.exitonclick()
